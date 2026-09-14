@@ -1,0 +1,51 @@
+doctrine:
+    dbal:
+        url: '%env(resolve:DATABASE_URL)%'
+        charset: utf8mb4
+        types:
+            role_code: App\Doctrine\DBAL\Types\RoleCodeType
+            permission_code: App\Doctrine\DBAL\Types\PermissionCodeType
+            user_status_code: App\Doctrine\DBAL\Types\UserStatusCodeType
+            product_status_code: App\Doctrine\DBAL\Types\ProductStatusCodeType
+            customer_order_status_code: App\Doctrine\DBAL\Types\CustomerOrderStatusCodeType
+            order_item_reservation_status_code: App\Doctrine\DBAL\Types\OrderItemReservationStatusCodeType
+            customer_wallet_transaction_purpose_code: App\Doctrine\DBAL\Types\CustomerWalletTransactionPurposeCodeType
+            warehouse_stock_transaction_purpose_code: App\Doctrine\DBAL\Types\WarehouseStockTransactionPurposeCodeType
+        profiling_collect_backtrace: '%kernel.debug%'
+    orm:
+        validate_xml_mapping: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        identity_generation_preferences:
+            Doctrine\DBAL\Platforms\PostgreSQLPlatform: identity
+        auto_mapping: true
+        mappings:
+            App:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Entity'
+                prefix: 'App\Entity'
+                alias: App
+
+when@test:
+    doctrine:
+        dbal:
+            # "TEST_TOKEN" is typically set by ParaTest
+            dbname_suffix: '_test%env(default::TEST_TOKEN)%'
+
+when@prod:
+    doctrine:
+        orm:
+            query_cache_driver:
+                type: pool
+                pool: doctrine.system_cache_pool
+            result_cache_driver:
+                type: pool
+                pool: doctrine.result_cache_pool
+
+    framework:
+        cache:
+            pools:
+                doctrine.result_cache_pool:
+                    adapter: cache.app
+                doctrine.system_cache_pool:
+                    adapter: cache.system
