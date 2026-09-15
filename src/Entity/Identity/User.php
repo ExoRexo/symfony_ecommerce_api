@@ -3,6 +3,7 @@
 namespace App\Entity\Identity;
 
 use App\Entity\Customer\Customer;
+use App\Enum\UserStatusCode;
 use App\Repository\UserRepository;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -181,14 +182,28 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    /** @return Collection<int, Role> */
+    public function getRolesCollection(): Collection
+    {
+        return $this->roles;
+    }
+
     public function getRoles(): array
     {
         $roles = [];
         foreach ($this->roles as $role) {
-            $roles[] = $role->getCode();
+            $roles[] = 'ROLE_' . $role->getCode()->value;
+        }
+        foreach ($this->directPermissions as $permission) {
+            $roles[] = 'PERMISSION_' . $permission->getCode()->value;
         }
 
-        return $roles;
+        return array_values(array_unique($roles));
+    }
+
+    public function isEnabled(): bool
+    {
+        return $this->statusType?->getCode() === UserStatusCode::ACTIVE;
     }
 
     public function getUserIdentifier(): string

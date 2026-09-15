@@ -77,4 +77,10 @@ class Role
 
         return $this;
     }
+
+    /** @return Collection<int, Permission> */
+    public function getPermissions(): Collection
+    {
+        return $this->permissions;
+    }
 }
