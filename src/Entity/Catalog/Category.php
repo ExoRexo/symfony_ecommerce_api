@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Catalog;
 
 use App\Repository\CategoryRepository;
 use Doctrine\ORM\Mapping as ORM;

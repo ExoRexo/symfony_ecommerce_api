@@ -2,7 +2,7 @@
 
 namespace App\Cache\Customer\Wallet;
 
-use App\Entity\CustomerWalletTransactionPurposeType;
+use App\Entity\Customer\Wallet\CustomerWalletTransactionPurposeType;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Cache\CacheItemPoolInterface;
 

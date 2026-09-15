@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Customer\Wallet;
 
+use App\Entity\Customer\Order\CustomerOrder;
+use App\Entity\Identity\User;
 use App\Repository\CustomerWalletTransactionRepository;
 use Doctrine\ORM\Mapping as ORM;
 

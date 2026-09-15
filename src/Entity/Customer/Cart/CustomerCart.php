@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Customer\Cart;
 
+use App\Entity\Customer\Customer;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]

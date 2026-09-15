@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\CustomerOrder;
+use App\Entity\Customer\Order\CustomerOrder;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\DBAL\LockMode;
 use Doctrine\Persistence\ManagerRegistry;

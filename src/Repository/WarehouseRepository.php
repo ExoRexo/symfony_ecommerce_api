@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\Warehouse;
+use App\Entity\Inventory\Warehouse;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\DBAL\LockMode;
 use Doctrine\Persistence\ManagerRegistry;

@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\CartItem;
+use App\Entity\Customer\Cart\CartItem;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\DBAL\LockMode;
 use Doctrine\Persistence\ManagerRegistry;

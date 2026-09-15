@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Identity;
 
-use App\Enum\ProductStatusCode;
+use App\Enum\UserStatusCode;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
-#[ORM\Table(name: 'product_status_types')]
-class ProductStatusType
+#[ORM\Table(name: 'user_status_types')]
+class UserStatusType
 {
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     #[ORM\Column(type: 'smallint')]
     private ?int $id = null;
 
-    #[ORM\Column(type: 'product_status_code', length: 100, unique: true, nullable: false)]
-    private ProductStatusCode $code;
+    #[ORM\Column(type: 'user_status_code', length: 100, unique: true, nullable: false)]
+    private UserStatusCode $code;
 
     #[ORM\Column(type: 'string', length: 120)]
     private ?string $label = null;
@@ -28,12 +28,12 @@ class ProductStatusType
         return $this->id;
     }
 
-    public function getCode(): ProductStatusCode
+    public function getCode(): UserStatusCode
     {
         return $this->code;
     }
 
-    public function setCode(ProductStatusCode $code): self
+    public function setCode(UserStatusCode $code): self
     {
         $this->code = $code;
 

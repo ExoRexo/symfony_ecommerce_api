@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Customer\Order;
 
+use App\Entity\Inventory\Warehouse;
 use App\Repository\OrderItemWarehouseReservationRepository;
 use Doctrine\ORM\Mapping as ORM;
 

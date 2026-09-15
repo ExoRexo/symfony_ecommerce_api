@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Customer\Wallet;
 
+use App\Entity\Customer\Customer;
 use App\Repository\CustomerWalletRepository;
 use Doctrine\ORM\Mapping as ORM;
 

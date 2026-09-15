@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Inventory;
 
+use App\Entity\Catalog\Product;
 use App\Repository\ProductWarehouseStockRepository;
 use Doctrine\ORM\Mapping as ORM;
 

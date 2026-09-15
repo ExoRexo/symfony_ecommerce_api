@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Customer\Wallet;
 
-use App\Enum\WarehouseStockTransactionPurposeCode;
+use App\Enum\CustomerWalletTransactionPurposeCode;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
-#[ORM\Table(name: 'wh_st_transaction_purpose_types')]
-class WarehouseStockTransactionPurposeType
+#[ORM\Table(name: 'c_wallt_transaction_purpose_types')]
+class CustomerWalletTransactionPurposeType
 {
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     #[ORM\Column(type: 'smallint')]
     private ?int $id = null;
 
-    #[ORM\Column(type: 'warehouse_stock_transaction_purpose_code', length: 100, unique: true, nullable: false)]
-    private WarehouseStockTransactionPurposeCode $code;
+    #[ORM\Column(type: 'customer_wallet_transaction_purpose_code', length: 30, unique: true, nullable: false)]
+    private CustomerWalletTransactionPurposeCode $code;
 
     #[ORM\Column(type: 'string', length: 120)]
     private ?string $label = null;
@@ -28,12 +28,12 @@ class WarehouseStockTransactionPurposeType
         return $this->id;
     }
 
-    public function getCode(): WarehouseStockTransactionPurposeCode
+    public function getCode(): CustomerWalletTransactionPurposeCode
     {
         return $this->code;
     }
 
-    public function setCode(WarehouseStockTransactionPurposeCode $code): self
+    public function setCode(CustomerWalletTransactionPurposeCode $code): self
     {
         $this->code = $code;
 

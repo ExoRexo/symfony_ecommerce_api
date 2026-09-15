@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\CustomerWalletTransaction;
+use App\Entity\Customer\Wallet\CustomerWalletTransaction;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 

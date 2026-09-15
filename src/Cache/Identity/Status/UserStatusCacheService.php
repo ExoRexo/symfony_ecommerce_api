@@ -2,7 +2,7 @@
 
 namespace App\Cache\Identity\Status;
 
-use App\Entity\UserStatusType;
+use App\Entity\Identity\UserStatusType;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Cache\CacheItemPoolInterface;
 

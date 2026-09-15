@@ -2,8 +2,8 @@
 
 namespace App\Cache\Customer\Order;
 
-use App\Entity\CustomerOrderStatusType;
-use App\Entity\OrderItemReservationStatusType;
+use App\Entity\Customer\Order\CustomerOrderStatusType;
+use App\Entity\Customer\Order\OrderItemReservationStatusType;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Cache\CacheItemPoolInterface;
 

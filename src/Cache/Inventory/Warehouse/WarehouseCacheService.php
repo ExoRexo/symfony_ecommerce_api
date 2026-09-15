@@ -2,7 +2,7 @@
 
 namespace App\Cache\Inventory\Warehouse;
 
-use App\Entity\WarehouseStockTransactionPurposeType;
+use App\Entity\Inventory\WarehouseStockTransactionPurposeType;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Cache\CacheItemPoolInterface;
 

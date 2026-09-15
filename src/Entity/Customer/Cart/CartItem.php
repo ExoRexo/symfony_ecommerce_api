@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Customer\Cart;
 
+use App\Entity\Catalog\Product;
 use App\Repository\CartItemRepository;
 use Doctrine\ORM\Mapping as ORM;
 

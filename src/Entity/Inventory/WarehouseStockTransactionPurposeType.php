@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Inventory;
 
-use App\Enum\OrderItemReservationStatusCode;
+use App\Enum\WarehouseStockTransactionPurposeCode;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
-#[ORM\Table(name: 'order_item_reservation_status_types')]
-class OrderItemReservationStatusType
+#[ORM\Table(name: 'wh_st_transaction_purpose_types')]
+class WarehouseStockTransactionPurposeType
 {
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     #[ORM\Column(type: 'smallint')]
     private ?int $id = null;
 
-    #[ORM\Column(type: 'order_item_reservation_status_code', length: 50, unique: true, nullable: false)]
-    private OrderItemReservationStatusCode $code;
+    #[ORM\Column(type: 'warehouse_stock_transaction_purpose_code', length: 100, unique: true, nullable: false)]
+    private WarehouseStockTransactionPurposeCode $code;
 
     #[ORM\Column(type: 'string', length: 120)]
     private ?string $label = null;
@@ -28,12 +28,12 @@ class OrderItemReservationStatusType
         return $this->id;
     }
 
-    public function getCode(): OrderItemReservationStatusCode
+    public function getCode(): WarehouseStockTransactionPurposeCode
     {
         return $this->code;
     }
 
-    public function setCode(OrderItemReservationStatusCode $code): self
+    public function setCode(WarehouseStockTransactionPurposeCode $code): self
     {
         $this->code = $code;
 

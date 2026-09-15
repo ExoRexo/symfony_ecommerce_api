@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\CustomerWallet;
+use App\Entity\Customer\Wallet\CustomerWallet;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\DBAL\LockMode;
 use Doctrine\Persistence\ManagerRegistry;

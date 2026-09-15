@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Inventory;
 
+use App\Entity\Catalog\Product;
+use App\Entity\Identity\User;
 use App\Repository\WarehouseStockTransactionRepository;
 use Doctrine\ORM\Mapping as ORM;
 

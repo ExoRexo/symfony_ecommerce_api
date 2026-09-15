@@ -2,7 +2,7 @@
 
 namespace App\Cache\Catalog\Product;
 
-use App\Entity\ProductStatusType;
+use App\Entity\Catalog\ProductStatusType;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Cache\CacheItemPoolInterface;
 

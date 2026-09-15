@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\WarehouseStockTransaction;
+use App\Entity\Inventory\WarehouseStockTransaction;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 

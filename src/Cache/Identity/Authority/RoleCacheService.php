@@ -2,7 +2,7 @@
 
 namespace App\Cache\Identity\Authority;
 
-use App\Entity\Role;
+use App\Entity\Identity\Role;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Cache\CacheItemPoolInterface;
 

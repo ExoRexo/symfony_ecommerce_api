@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\OrderItemWarehouseReservation;
+use App\Entity\Customer\Order\OrderItemWarehouseReservation;
 use App\Enum\OrderItemReservationStatusCode;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\DBAL\LockMode;
