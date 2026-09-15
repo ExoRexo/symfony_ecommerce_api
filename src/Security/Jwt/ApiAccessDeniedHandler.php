@@ -8,9 +8,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Http\Authorization\AccessDeniedHandlerInterface;
 
-final class ApiAccessDeniedHandler implements AccessDeniedHandlerInterface
+final readonly class ApiAccessDeniedHandler implements AccessDeniedHandlerInterface
 {
-    public function __construct(private readonly ApiResponseFactory $responseFactory)
+    public function __construct(private ApiResponseFactory $responseFactory)
     {
     }
 
