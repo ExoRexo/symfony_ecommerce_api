@@ -1,5 +1,15 @@
+{
+    frankenphp {
+        php_ini expose_php Off
+    }
+}
+
 http://127.0.0.1:80 {
     root * public
+
+    header {
+        -Server
+    }
 
     php_server {
         worker ./public/index.php
