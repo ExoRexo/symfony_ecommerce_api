@@ -15,7 +15,6 @@ use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Validator\Exception\ValidationFailedException;
-use Symfony\Component\Validator\ConstraintViolationInterface;
 
 #[AsEventListener(event: KernelEvents::EXCEPTION)]
 final readonly class ApiExceptionListener
@@ -73,7 +72,6 @@ final readonly class ApiExceptionListener
         $errors = [];
 
         foreach ($exception->getViolations() as $violation) {
-            \assert($violation instanceof ConstraintViolationInterface);
             $errors[] = sprintf('%s: %s', $violation->getPropertyPath(), $violation->getMessage());
         }
 
@@ -82,7 +80,7 @@ final readonly class ApiExceptionListener
 
     private function message(\Throwable $exception, string $fallback): string
     {
-        if (!$this->includeErrorDetails || trim($exception->getMessage()) === '') {
+        if (trim($exception->getMessage()) === '') {
             return $fallback;
         }
 
