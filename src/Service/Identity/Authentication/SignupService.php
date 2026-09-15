@@ -14,14 +14,14 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-final class SignupService
+final readonly class SignupService
 {
     public function __construct(
-        private readonly EntityManagerInterface $entityManager,
-        private readonly UserRepository $userRepository,
-        private readonly UserStatusCacheService $userStatusCacheService,
-        private readonly RoleCacheService $roleCacheService,
-        private readonly UserPasswordHasherInterface $passwordHasher,
+        private EntityManagerInterface $entityManager,
+        private UserRepository $userRepository,
+        private UserStatusCacheService $userStatusCacheService,
+        private RoleCacheService $roleCacheService,
+        private UserPasswordHasherInterface $passwordHasher,
     ) {
     }
 

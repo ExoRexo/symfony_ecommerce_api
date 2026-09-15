@@ -10,12 +10,12 @@ use App\Security\Principal\UserPrincipal;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 
-final class LoginService
+final readonly class LoginService
 {
     public function __construct(
-        private readonly UserRepository $userRepository,
-        private readonly UserPasswordHasherInterface $passwordHasher,
-        private readonly JwtService $jwtService,
+        private UserRepository $userRepository,
+        private UserPasswordHasherInterface $passwordHasher,
+        private JwtService $jwtService,
     ) {
     }
 
