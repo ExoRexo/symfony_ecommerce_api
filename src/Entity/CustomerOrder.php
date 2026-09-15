@@ -2,9 +2,12 @@
 
 namespace App\Entity;
 
+use App\Repository\CustomerOrderRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity]
+#[ORM\Entity(repositoryClass: CustomerOrderRepository::class)]
 #[ORM\Table(name: 'customer_orders')]
 class CustomerOrder
 {
@@ -21,8 +24,20 @@ class CustomerOrder
     #[ORM\JoinColumn(name: 'status_type_id', referencedColumnName: 'id', nullable: false)]
     private ?CustomerOrderStatusType $statusType = null;
 
+    #[ORM\OneToMany(mappedBy: 'order', targetEntity: OrderItem::class, fetch: 'LAZY')]
+    private Collection $items;
+
+    #[ORM\OneToMany(mappedBy: 'order', targetEntity: OrderCustomerWalletTransaction::class, fetch: 'LAZY')]
+    private Collection $walletTransactions;
+
     #[ORM\Column(name: 'created_at', type: 'datetime_immutable', nullable: false)]
     private ?\DateTimeImmutable $createdAt = null;
+
+    public function __construct()
+    {
+        $this->items = new ArrayCollection();
+        $this->walletTransactions = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -51,6 +66,18 @@ class CustomerOrder
         $this->statusType = $statusType;
 
         return $this;
+    }
+
+    /** @return Collection<int, OrderItem> */
+    public function getItems(): Collection
+    {
+        return $this->items;
+    }
+
+    /** @return Collection<int, OrderCustomerWalletTransaction> */
+    public function getWalletTransactions(): Collection
+    {
+        return $this->walletTransactions;
     }
 
     public function getCreatedAt(): ?\DateTimeImmutable

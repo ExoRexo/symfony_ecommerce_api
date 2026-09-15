@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
+use App\Repository\CartItemRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity]
+#[ORM\Entity(repositoryClass: CartItemRepository::class)]
 #[ORM\Table(name: 'cart_items')]
 #[ORM\UniqueConstraint(name: 'uq_cart_product', columns: ['cart_id', 'product_id'])]
 class CartItem

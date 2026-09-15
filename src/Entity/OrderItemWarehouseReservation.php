@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
+use App\Repository\OrderItemWarehouseReservationRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity]
+#[ORM\Entity(repositoryClass: OrderItemWarehouseReservationRepository::class)]
 #[ORM\Table(name: 'order_item_warehouse_reservations')]
 class OrderItemWarehouseReservation
 {

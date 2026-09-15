@@ -2,9 +2,12 @@
 
 namespace App\Entity;
 
+use App\Repository\OrderItemRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity]
+#[ORM\Entity(repositoryClass: OrderItemRepository::class)]
 #[ORM\Table(name: 'order_items')]
 class OrderItem
 {
@@ -30,8 +33,16 @@ class OrderItem
     #[ORM\JoinColumn(name: 'order_id', referencedColumnName: 'id', nullable: false)]
     private ?CustomerOrder $order = null;
 
+    #[ORM\OneToMany(mappedBy: 'orderItem', targetEntity: OrderItemWarehouseReservation::class, fetch: 'LAZY')]
+    private Collection $warehouseReservations;
+
     #[ORM\Column(name: 'created_at', type: 'datetime_immutable', nullable: false)]
     private ?\DateTimeImmutable $createdAt = null;
+
+    public function __construct()
+    {
+        $this->warehouseReservations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -96,6 +107,12 @@ class OrderItem
         $this->order = $order;
 
         return $this;
+    }
+
+    /** @return Collection<int, OrderItemWarehouseReservation> */
+    public function getWarehouseReservations(): Collection
+    {
+        return $this->warehouseReservations;
     }
 
     public function getCreatedAt(): ?\DateTimeImmutable

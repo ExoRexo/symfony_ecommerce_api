@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
+use App\Repository\CategoryRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity]
+#[ORM\Entity(repositoryClass: CategoryRepository::class)]
 #[ORM\Table(name: 'categories')]
 class Category
 {
@@ -16,7 +17,7 @@ class Category
     #[ORM\Column(type: 'string', length: 100)]
     private ?string $name = null;
 
-    #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'children')]
+    #[ORM\ManyToOne(targetEntity: self::class)]
     #[ORM\JoinColumn(name: 'parent_id', referencedColumnName: 'id', nullable: true)]
     private ?self $parent = null;
 

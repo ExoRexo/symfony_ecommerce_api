@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
+use App\Repository\CustomerWalletRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity]
+#[ORM\Entity(repositoryClass: CustomerWalletRepository::class)]
 #[ORM\Table(name: 'customer_wallets')]
 class CustomerWallet
 {

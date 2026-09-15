@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
+use App\Repository\ProductWarehouseStockRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity]
+#[ORM\Entity(repositoryClass: ProductWarehouseStockRepository::class)]
 #[ORM\Table(name: 'product_wh_stocks')]
 #[ORM\UniqueConstraint(name: 'uq_product_wh', columns: ['product_id', 'warehouse_id'])]
 class ProductWarehouseStock
